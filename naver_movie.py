@@ -29,5 +29,5 @@ def get_movie_reviews(mcode, page_num=10):
   return movie_review_df
   
 
-movie_review_df = get_movie_reviews(73372, 1)
+movie_review_df = get_movie_reviews(73372, 1)    # 세 얼간이 영화 리뷰 스크래핑
 movie_review_df
