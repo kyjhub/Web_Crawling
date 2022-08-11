@@ -1,6 +1,5 @@
 # 코랩에서 작성
 # 이수안컴퓨터연구소 네이버 웹툰 스크래핑 유튜브 영상을 기반으로 작성
-# 현재는 selenium이 업데이트 돼서 영상에서 사용하는 메서드를 사용할 수 없어서 코드가 많이 다름
 
 genre_ul = wd.find_elements(By.CLASS_NAME, 'tab_gr')[0]
 genre_list = genre_ul.find_elements('tag name', 'a')
@@ -22,7 +21,7 @@ wd.get("https://comic.naver.com/index")
 
 import time
 
-genre_ul = wd.find_elements(By.CLASS_NAME, 'tab_gr')[0]
+genre_ul = wd.find_element(By.CLASS_NAME, 'tab_gr')
 genre_list = genre_ul.find_elements('tag name', 'a')
 
 for genre in genre_list:
@@ -32,8 +31,8 @@ for genre in genre_list:
   
   genre_rec_list = wd.find_elements('class name', 'genreRecomInfo2')
   for genre_rec in genre_rec_list:
-    title_class = genre_rec.find_elements('class name', 'title')
-    title = title_class[0].find_elements('tag name', 'a')[0].text
+    title_class = genre_rec.find_element('class name', 'title')
+    title = title_class.find_element('tag name', 'a').text
     user = genre_rec.find_element('class name', 'user').text
     print("\t", title, "-", user)
 
