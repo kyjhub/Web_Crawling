@@ -1,13 +1,15 @@
 # 코랩에서 작성
 # 이수안컴퓨터연구소 네이버 웹툰 스크래핑 유튜브 영상을 기반으로 작성
 
-genre_ul = wd.find_elements(By.CLASS_NAME, 'tab_gr')[0]
-genre_list = genre_ul.find_elements('tag name', 'a')
 
-for genre in genre_list:
-  genre.click()
-  print("[", genre.text, "]")
-  
+!pip install Selenium
+!apt-get update
+!apt install chromium-chromedriver
+!cp /usr/lib/chromium-browser/chromedriver /usr/bin
+
+import sys
+sys.path.insert(0, '/usr/lib/chromium-browser/chromedriver')
+
 from selenium import webdriver
 
 chrome_options = webdriver.ChromeOptions()
